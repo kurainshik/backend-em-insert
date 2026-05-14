@@ -20,6 +20,21 @@ app.get('/', (req, res) => {
     descricao: 'Rota /api/leituras lê dados do PostgreSQL.',
   });
 });
+app.get('/', (req, res) => {
+    res.send('Servidor funcionando')
+})
+
+app.get('/api/leituras', (req, res) => {
+    res.send('Lista de leituras')
+})
+
+app.get('/api/leituras/data/:data', (req, res) => {
+
+    const data = req.params.data
+
+    res.send(`Buscando leituras da data ${data}`)
+
+})
 
 app.use('/api', leiturasRoutes);
 
